@@ -74,6 +74,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    console.log("lavla: ",messages)
   }, [messages, isLoading]);
 
   useEffect(() => {
@@ -579,8 +580,10 @@ export default function Dashboard() {
                   <div className="flex-1 overflow-y-auto">
                     <div className="mx-auto max-w-3xl px-4 py-6">
                       <div className="flex flex-col gap-5">
-                        {messages?.map((msg) => (
-                          <ChatMessage
+                        {messages?.map((msg) => {
+                          console.log("meeeeen", msg)
+                          return (
+                          <ChatMessage 
                             key={msg._id}
                             role={msg.role}
                             content={msg.content}
@@ -590,7 +593,7 @@ export default function Dashboard() {
                             onToggleStar={handleToggleStar}
                             metadata={msg.metadata}
                           />
-                        ))}
+                        )})}
                         {isLoading && <TypingIndicator />}
                         <div ref={messagesEndRef} />
                       </div>

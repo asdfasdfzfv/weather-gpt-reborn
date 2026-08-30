@@ -1,7 +1,7 @@
 {
-  "name": "weatherGPT",
-  "short_name": "wGPT",
-  "description": "a realtime chatbot used for resolving all queries regarding weather forecasting",
+  "name": "freebuff.com application",
+  "short_name": "freebuff.com",
+  "description": "freebuff.com application",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

@@ -450,10 +450,11 @@ async function callLLM(userMessage: string, lang: string, apiKey?: string): Prom
   try {
     const { GoogleGenAI } = await import("@google/genai");
     const ai = new GoogleGenAI({ apiKey: key });
-    const response = await ai.models.generateContent({ model: "gemini-2.5-flash", contents: userMessage, config: { systemInstruction: systemPrompt, temperature: 0.8, topP: 0.95, maxOutputTokens: 4096 } });
+    const response = await ai.models.generateContent({ model: "gemini-3.6-flash", contents: userMessage, config: { systemInstruction: systemPrompt, temperature: 0.8, topP: 0.95, maxOutputTokens: 4096 } });
     return response.text || "I couldn't generate a response. Please try asking about weather.";
   } catch (error) {
     console.error("Gemini error:", error);
+    // alert("Gemini error:" + JSON.stringify(error));
     return "I'm having trouble with the AI service. Please ask me about weather \u2014 I can provide real-time weather data without the AI!";
   }
 }
